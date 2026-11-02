@@ -11,8 +11,8 @@ TOLERANCE = 1e-9
 MAX_EXTENSION_FACTOR = 1.35 #  >= 1 / (1 -F)  
 NUMERICAL_SAFETY = 1e-10
 
-Z = 0.0
-H = 0.6777
+Z = 0.28
+H = 0.70
 
 G = 4.30091e-9 
 
@@ -24,11 +24,13 @@ A_CONTRACT_RADIUS = 1e-10 # Intitial shift of r_i for iterative process
 # COSMOLOGICAL CONSTANTS (Planck18)
 # =============================================================================
 
-RHO_C = cosmo.critical_density(0).to("M_sun / Mpc3").value / H**2
+#RHO_C = cosmo.critical_density(0).to("M_sun / Mpc3").value / H**2
+RHO_C = cosmo.critical_density(Z).to("M_sun / Mpc3").value / H**2
 
-OMEGA_M = 0.3071  # Schneider et al. (2012)
+
+OMEGA_M = 0.3  # Schneider et al. (2012)
 OMEGA_B = 0.0483
-OMEGA_L = 0.6929
+OMEGA_L = 0.7
 
 RHO_M0 = RHO_C * OMEGA_M
 RHO_M = RHO_C * OMEGA_M
@@ -42,8 +44,8 @@ RHO_BG = OMEGA_M * RHO_C
 # =============================================================================
 
 # Bryan & Norman (1998)
-DELTA_VIR = (18.0 * np.pi**2 + 82.0 * (OMEGA_M - 1.0) - 39.0 * (OMEGA_M - 1.0)**2)
-
+# DELTA_VIR = (18.0 * np.pi**2 + 82.0 * (OMEGA_M - 1.0) - 39.0 * (OMEGA_M - 1.0)**2)
+DELTA_VIR = 200
 # Virial radius
 R_VIR = (config.HALO_MASS / ((4.0 / 3.0) * np.pi * DELTA_VIR * RHO_C)) ** (1.0 / 3.0)
 
@@ -216,19 +218,11 @@ elif config.SCHNEIDER2015_CASE == 'C':
 F_EJECTED_GAS = (1.0 - F_RDM - F_CENTRAL_GALAXY - F_BOUNDED_GAS)
 
 # =============================================================================
-# LIMOUSIN PARAMETERS
+# LIMOUSIN PARAMETERS (Abell 1703 Observational Truth)
 # =============================================================================
-
-R_CUT = R_200 / H
-
-R_CORE = 0.1 / H  # Mpc/h
-
-total_mass_exact = config.HALO_MASS / H
-
-term1 = (total_mass_exact * G) / np.pi
-term2 = (R_CUT + R_CORE) / (R_CUT**2)
-
-SIGMA_0 = np.sqrt(term1 * term2)
+R_CUT = 30.0 / 1000.0 
+R_CORE = 1e-5 / 1000.0 
+SIGMA_0 = 299.4                # Fiducial velocity dispersion in km/s
 
 
 # =============================================================================
