@@ -29,7 +29,7 @@ RHO_C = cosmo.critical_density(Z).to("M_sun / Mpc3").value / H**2
 
 
 OMEGA_M = 0.3  # Schneider et al. (2012)
-OMEGA_B = 0.0483
+OMEGA_B = 0.0
 OMEGA_L = 0.7
 
 RHO_M0 = RHO_C * OMEGA_M

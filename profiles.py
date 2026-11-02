@@ -34,8 +34,8 @@ class Halo:
         return 18.0 * np.pi**2 + 82.0 * d - 39.0 * d**2
 
     def _calculate_r_vir(self):
-        return constantes.DELTA_VIR
-
+        return constantes.R_VIR
+    
     def _calculate_rho_0_nfw(self):
         return nfw_rho_s(self.halo_mass, self.r_scale, self.c)
 

@@ -10,10 +10,11 @@ DM_PROFILE = 'Zhao' # 'NFW', 'Einasto', 'Burkert', 'PIEMD', 'Zhao', 'Interpolate
 
 BARYON_PROFILE = 'PIEMD' 
 
-CONTRACTION = 'Blumenthal' # 'Blumenthal', 'Ando', 'Schneider2015', 'Schneider2019', 'Schneider2025'
+CONTRACTION = 'Ando' # 'Blumenthal', 'Ando', 'Schneider2015', 'Schneider2019', 'Schneider2025'
 
 
 HALO_MASS = 1.8e15 * 0.7# Total mass of the halo in M_sun / h 
+
 CONCENTRATION = 3.1 # Concentration parameter (c)
 
 ALPHA_CUSTOM = 1.0
