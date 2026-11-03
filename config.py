@@ -6,11 +6,12 @@ from astropy.cosmology import Planck18 as cosmo
 R = np.logspace(np.log10(0.02), np.log10(0.21), 500) * 0.70
 
 
-DM_PROFILE = 'Zhao' # 'NFW', 'Einasto', 'Burkert', 'PIEMD', 'Zhao', 'Interpolated'
+
+DM_PROFILE = 'Zhao'
 
 BARYON_PROFILE = 'PIEMD' 
 
-CONTRACTION = 'Ando' # 'Blumenthal', 'Ando', 'Schneider2015', 'Schneider2019', 'Schneider2025'
+CONTRACTION = 'Blumenthal' # 'Blumenthal', 'Ando', 'Schneider2015', 'Schneider2019', 'Schneider2025'
 
 
 HALO_MASS = 1.8e15 * 0.7# Total mass of the halo in M_sun / h 

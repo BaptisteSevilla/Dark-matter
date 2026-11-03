@@ -24,11 +24,10 @@ A_CONTRACT_RADIUS = 1e-10 # Intitial shift of r_i for iterative process
 # COSMOLOGICAL CONSTANTS (Planck18)
 # =============================================================================
 
-#RHO_C = cosmo.critical_density(0).to("M_sun / Mpc3").value / H**2
 RHO_C = cosmo.critical_density(Z).to("M_sun / Mpc3").value / H**2
 
 
-OMEGA_M = 0.3  # Schneider et al. (2012)
+OMEGA_M = 0.3 
 OMEGA_B = 0.0
 OMEGA_L = 0.7
 
@@ -43,8 +42,6 @@ RHO_BG = OMEGA_M * RHO_C
 # VIRIAL HALO PROPERTIES
 # =============================================================================
 
-# Bryan & Norman (1998)
-# DELTA_VIR = (18.0 * np.pi**2 + 82.0 * (OMEGA_M - 1.0) - 39.0 * (OMEGA_M - 1.0)**2)
 DELTA_VIR = 200
 # Virial radius
 R_VIR = (config.HALO_MASS / ((4.0 / 3.0) * np.pi * DELTA_VIR * RHO_C)) ** (1.0 / 3.0)
@@ -54,8 +51,6 @@ R_VIR = (config.HALO_MASS / ((4.0 / 3.0) * np.pi * DELTA_VIR * RHO_C)) ** (1.0 /
 # =============================================================================
 
 # Generic Baryonic Parameters (Hernquist / Disk)
-#  Milky Way size from Internet to be checked
-
 R_B = 3.0e-3 * H  # Mpc/h
 
 M_B = F_B * config.HALO_MASS  # Total baryonic mass
